@@ -1,0 +1,10 @@
+create new .env file and add API_KEY="groqcloud api key"
+Python 3.12 version required
+
+//command to run fast api
+uvicorn main:app --host 0.0.0.0 --port 8001 --reload
+
+//command to run ngrok server
+ngrok http 8001
+
+dont keep extra lines in urls.txt file as it will cause error as following: An error occurred: fact_sheet Invalid URL '': No scheme supplied. Perhaps you meant https://?

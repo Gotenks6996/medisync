@@ -1,0 +1,11 @@
+langchain
+requests
+beautifulsoup4
+dotenv
+faiss-cpu
+fastapi
+uvicorn
+groqcloud
+langchain-huggingface
+python
+
