@@ -38,6 +38,9 @@ class Food(BaseModel):
 class Sleep(BaseModel):
     sleep: str
 
+class Calorie(BaseModel):
+    item: str
+
 
 
 
@@ -215,6 +218,35 @@ async def general(input_text: Sleep):
     system_prompt = (
         "I will provide my bedtime for the previous days. Based on this data, analyze my sleep consistency and generate a 25-word feedback message. Highlight patterns, potential improvements, and a friendly suggestion for a healthier sleep routine. Also, identify the best and worst sleep time based on ideal sleep schedules (10:00 PM - 11:30 PM as best, past 2:00 AM as worst). my sleep time is "
         f"{input_text.sleep}"
+        "give some emojis"
+    )
+
+    #prompt
+    qa_prompt = ChatPromptTemplate.from_messages([
+        ("system", system_prompt),
+    ])
+
+    try:
+        # Generate response from LLM
+        response = llm.invoke(qa_prompt.format_messages())
+
+        return response.content
+    
+    except Exception as e:
+        return {"error": f"Error occurred: {e}"}
+
+    
+@app.post("/calorie")
+async def general(input_text: Calorie):
+    """
+    This is a calorie calculator chatbot without RAG
+    """
+
+
+    #prompt for the llm model
+    system_prompt = (
+        "You are a nutrition assistant that provides calorie information for food items. When given a food name, return the estimated calorie count per common serving. If the input is too vague (e.g., just 'salad' or 'chicken'), ask the user to be more specific by suggesting details such as portion size, ingredients, or preparation method. Ensure your response is clear, concise, and formatted for easy reading. give me for "
+        f"{input_text.item}"
         "give some emojis"
     )
 
