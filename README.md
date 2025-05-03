@@ -2,10 +2,13 @@
 
 You can check out the project in Project.pdf file
 
+##  Setup Instructions
+
+### IMP
 create new .env file and add API_KEY="groqcloud api key"
 Python 3.12 version required
 
-##  Setup Instructions
+
 
 ### 1. Create a Virtual Environment
 
