@@ -1,3 +1,5 @@
+#MediSync
+
 You can check out the project in Project.pdf file
 
 create new .env file and add API_KEY="groqcloud api key"
