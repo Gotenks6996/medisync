@@ -29,7 +29,7 @@ pip install -r requirements.txt
 uvicorn main:app --host 0.0.0.0 --port 8001 --reload
 ```
 
-### 4. COmmand to run ngrok server
+### 4. Command to run ngrok server
 
 ```
 ngrok http 8001
